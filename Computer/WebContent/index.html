@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery-validation</title>
+<script type="text/javascript" src="js/jquery-1.10.0.js"></script>
+<script type="text/javascript" src="js/jquery.validate-1.13.1.js"></script>
+<style type="text/css">
+.error{
+color:red;
+font-size:5px;
+margin-right:5px
+}
+.input1{width:100px}
+</style>
+<script type="text/javascript" src="js/validation.js"></script>
+</head>
+<body>
+<form action="" id ="FormId">
+<div id ="info"></div>
+<table>
+<tr>
+<td>用户名：</td>
+<td><input type="text" name="username" id="username" class="input1"/></td>
+</tr>
+<tr>
+<td>密码：</td>
+<td><input type="text" name="password" id="password" class="input1"/></td>
+<td class="status"></td>
+</tr>
+<tr>
+<td>确认密码：</td>
+<td><input type="text" name="confirm-password" id="confirm-password" class="input1"/></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" value="提交"/></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

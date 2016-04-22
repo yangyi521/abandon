@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="trial" extends="struts-default">
+	<!-- 设置登录拦截，没登陆登陆 -->
+	<!--一定要注意加上默认的拦截器，否则struts2不能执行默认的拦截器了就  -->
+	<interceptors>
+		<interceptor name="authorizationInterceptor" class="com.trial.interceptor.AuthorizationInterceptor"/>
+		<interceptor-stack name="deafault">
+		<interceptor-ref name="defaultStack"/>
+		<interceptor-ref name="authorizationInterceptor"/>
+		</interceptor-stack>
+	</interceptors>
+	<!-- <default-interceptor-ref name="myDafault"></default-interceptor-ref> -->
+	<global-results>
+	 <result name="login" type="redirect">/login.jsp</result>
+	</global-results>
+		<action name="login" class="com.trial.action.ManagerLogin" method="login">
+			<result name="success">/login/index.html</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		<action name="querybySN" class="com.trial.action.querybysn" method="snquery">
+		<result name="success">/login/computerstate2.jsp</result>
+		 <interceptor-ref name="deafault"/> 
+		</action>
+		<action name="querybyos" class="com.trial.action.querybyos" method="execute">
+		<result name="success">/login/computerManage.jsp</result>
+		 <interceptor-ref name="deafault"/>
+		</action>
+	<action name="adduse" class="com.trial.action.Allocation" method="execute">
+	  <result name="success">/login/addsuccess.jsp</result>
+	  <result name="error">/index.jsp</result>
+	  <interceptor-ref name="deafault"/>
+	</action>
+	<action name ="querybymenber_no" class="com.trial.action.ComputerReturn" method ="execute">
+	<result name ="success">/login/addsuccess.jsp</result>
+	<result name ="error">/index.jsp</result>
+	 <interceptor-ref name="deafault"/>
+	</action>
+	<action name="querybyid" class="com.trial.action.querybyid" method="execute">
+		<result name="success">/login/concretecp.jsp</result>
+       <interceptor-ref name="deafault"/> 
+		</action>
+	</package>
+
+</struts>
